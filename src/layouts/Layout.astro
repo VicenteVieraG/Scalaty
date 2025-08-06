@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { Font } from "astro:assets";
 
 const { SITE } = import.meta.env;
 const TITLE: Readonly<string> = "Scalaty Solutions";
@@ -8,8 +9,6 @@ const DESCRIPTION: Readonly<string> = "Optimizamos la operación de tu empresa, 
 const IMAGE: Readonly<string> = "/scalatyLogo.webp";
 const IMAGE_ALT: Readonly<string> = "Scalaty logo";
 const AUTHOR: Readonly<string> = "Vicente Javier Viera Guizar";
-// const TWITTER_SITE: Readonly<string> = "";
-// const TWITTER_CREATOR: Readonly<string> = "";
 ---
 
 <!doctype html>
@@ -37,16 +36,19 @@ const AUTHOR: Readonly<string> = "Vicente Javier Viera Guizar";
 		<meta name="twitter:description" content={ DESCRIPTION } />
 		<meta name="twitter:image" content={ IMAGE } />
 		<meta name="twitter:image:alt" content={ IMAGE_ALT } />
-		<!-- <meta name="twitter:site" content={ TWITTER_SITE } /> -->
-    	<!-- <meta name="twitter:creator" content={ TWITTER_CREATOR } /> -->
 
 		<meta name="theme-color" content="#063E8B" />
 		<link rel="icon" type="image/svg+xml" href="/scalatyLogo.ico" />
 
 		<meta name="generator" content={Astro.generator} />
 		<meta name="robots" content="index, follow" />
+		<Font cssVariable="--font-pjs" preload />
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
+
+<style>
+	body { font-family: var(--font-pjs); color: white; }
+</style>

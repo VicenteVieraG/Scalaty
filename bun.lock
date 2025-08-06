@@ -4,6 +4,7 @@
     "": {
       "name": "scalaty",
       "dependencies": {
+        "@lucide/astro": "^0.536.0",
         "@tailwindcss/vite": "^4.1.11",
         "astro": "^5.12.7",
         "tailwindcss": "^4.1.11",
@@ -137,6 +138,8 @@
     "@jridgewell/sourcemap-codec": ["@jridgewell/sourcemap-codec@1.5.4", "", {}, "sha512-VT2+G1VQs/9oz078bLrYbecdZKs912zQlkelYpuf+SXF+QvZDYJlbx/LSx+meSAwdDFnF8FVXW92AVjjkVmgFw=="],
 
     "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.29", "", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha512-uw6guiW/gcAGPDhLmd77/6lW8QLeiV5RUTsAX46Db6oLhGaVj4lhnPwb184s1bkc8kdVg/+h988dro8GRDpmYQ=="],
+
+    "@lucide/astro": ["@lucide/astro@0.536.0", "", { "peerDependencies": { "astro": "^4 || ^5" } }, "sha512-YtnEpWuk+ETun3kcLFbfYlPWuE5fhStg76u8dmhOUsRHk7E1ZsXbtxY612GobgJRiD9tqXmhcg1qu0yVuceTvw=="],
 
     "@oslojs/encoding": ["@oslojs/encoding@1.1.0", "", {}, "sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ=="],
 
