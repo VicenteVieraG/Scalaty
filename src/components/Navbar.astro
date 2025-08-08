@@ -1,0 +1,24 @@
+---
+import { Menu } from "@lucide/astro";
+const menuItems: ReadonlyArray<string> = ["Solutions", "Products", "About Us", "Pricing", "Blog"];
+---
+
+<header>
+    <nav class="navbar glass border rounded-box shadow-sm">
+        <div class="navbar-end flex-1 sm:hidden">
+            <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="btn m-1">
+                    <Menu/>
+                </div>
+                <ul tabindex="0" class="dropdown-content menu glass px-4 rounded-box shadow-sm [&_li_a]:text-nowrap">
+                    { menuItems.map(item => <li><a>{ item }</a></li>) }
+                </ul>
+            </div>
+        </div>
+        <div class="navbar-center hidden sm:flex">
+            <ul class="menu menu-horizontal">
+                { menuItems.map(item => <li><a>{ item }</a></li>) }
+            </ul>
+        </div>
+    </nav>
+</header>

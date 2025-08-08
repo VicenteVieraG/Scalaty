@@ -12,7 +12,7 @@ const AUTHOR: Readonly<string> = "Vicente Javier Viera Guizar";
 ---
 
 <!doctype html>
-<html lang="es-SV">
+<html lang="es-SV" class="bg-base-200">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -44,11 +44,11 @@ const AUTHOR: Readonly<string> = "Vicente Javier Viera Guizar";
 		<meta name="robots" content="index, follow" />
 		<Font cssVariable="--font-pjs" preload />
 	</head>
-	<body>
+	<body class="px-4 py-2">
 		<slot />
 	</body>
 </html>
 
 <style>
-	body { font-family: var(--font-pjs); color: white; }
+	body { font-family: var(--font-pjs); }
 </style>
