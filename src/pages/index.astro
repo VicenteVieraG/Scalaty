@@ -1,8 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Hero from "../layouts/Hero.astro";
 import Navbar from "../components/Navbar.astro";
 ---
 
 <Layout>
-	<Navbar/>
+	<main class="min-h-svh">
+		<Navbar className="mb-16"/>
+		<Hero/>
+	</main>
 </Layout>

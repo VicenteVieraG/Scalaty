@@ -1,24 +1,38 @@
 ---
 import { Menu } from "@lucide/astro";
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"header"> {
+    className?: Readonly<string>;
+};
+const { className } = Astro.props;
+
 const menuItems: ReadonlyArray<string> = ["Solutions", "Products", "About Us", "Pricing", "Blog"];
+const epicLink: Readonly<string> = "https://youtu.be/dQw4w9WgXcQ?si=1BSg0Cxx11qA6LL9";
 ---
 
-<header>
-    <nav class="navbar glass border rounded-box shadow-sm">
+<header class:list={["relative z-50", className]}>
+    <nav class="navbar glass justify-center border rounded-box shadow-sm">
         <div class="navbar-end flex-1 sm:hidden">
             <div class="dropdown dropdown-end">
                 <div tabindex="0" role="button" class="btn m-1">
                     <Menu/>
                 </div>
-                <ul tabindex="0" class="dropdown-content menu glass px-4 rounded-box shadow-sm [&_li_a]:text-nowrap">
-                    { menuItems.map(item => <li><a>{ item }</a></li>) }
-                </ul>
+                <menu
+                    tabindex="0"
+                    class="dropdown-content menu glass bg-base-100/80 w-32 mt-4 rounded-box shadow-sm"
+                    style="
+                        --glass-opacity: 0.2;
+                        --glass-reflect-opacity: 0;
+                        --glass-text-shadow-opacity: 0;">
+                    { menuItems.map(item => <li><a href={ epicLink } class="place-content-center">{ item }</a></li>) }
+                </menu>
             </div>
         </div>
         <div class="navbar-center hidden sm:flex">
-            <ul class="menu menu-horizontal">
-                { menuItems.map(item => <li><a>{ item }</a></li>) }
-            </ul>
+            <menu class="menu menu-horizontal sm:text-lg md:text-xl">
+                { menuItems.map(item => <li><a href={ epicLink }>{ item }</a></li>) }
+            </menu>
         </div>
     </nav>
 </header>
