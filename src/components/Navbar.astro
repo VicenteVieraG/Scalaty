@@ -11,28 +11,25 @@ const menuItems: ReadonlyArray<string> = ["Solutions", "Products", "About Us", "
 const epicLink: Readonly<string> = "https://youtu.be/dQw4w9WgXcQ?si=1BSg0Cxx11qA6LL9";
 ---
 
-<header class:list={["relative z-50", className]}>
-    <nav class="navbar glass justify-center border rounded-box shadow-sm">
-        <div class="navbar-end flex-1 sm:hidden">
-            <div class="dropdown dropdown-end">
-                <div tabindex="0" role="button" class="btn m-1">
-                    <Menu/>
-                </div>
-                <menu
-                    tabindex="0"
-                    class="dropdown-content menu glass bg-base-100/80 w-32 mt-4 rounded-box shadow-sm"
-                    style="
-                        --glass-opacity: 0.2;
-                        --glass-reflect-opacity: 0;
-                        --glass-text-shadow-opacity: 0;">
-                    { menuItems.map(item => <li><a href={ epicLink } class="place-content-center">{ item }</a></li>) }
-                </menu>
-            </div>
-        </div>
-        <div class="navbar-center hidden sm:flex">
-            <menu class="menu menu-horizontal sm:text-lg md:text-xl">
-                { menuItems.map(item => <li><a href={ epicLink }>{ item }</a></li>) }
-            </menu>
-        </div>
-    </nav>
+<header class:list={["relative z-10", className]}>
+	<nav class="navbar glass justify-center border rounded-box shadow-sm">
+		<div class="navbar-end flex-1 sm:hidden">
+			<details class="dropdown dropdown-end">
+				<summary class="btn m-1"><Menu/></summary>
+				<menu
+					class="dropdown-content menu glass bg-base-100/80 w-32 mt-4 rounded-box shadow-sm"
+					style="
+						--glass-opacity: 0.2;
+						--glass-reflect-opacity: 0;
+						--glass-text-shadow-opacity: 0;">
+					{ menuItems.map(item => <li><a href={ epicLink } class="place-content-center">{ item }</a></li>) }
+				</menu>
+			</details>
+		</div>
+		<div class="navbar-center hidden sm:flex">
+			<menu class="menu menu-horizontal sm:text-lg md:text-xl">
+				{ menuItems.map(item => <li><a href={ epicLink }>{ item }</a></li>) }
+			</menu>
+		</div>
+	</nav>
 </header>
