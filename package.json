@@ -1,7 +1,7 @@
 {
   "name": "scalaty",
   "type": "module",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "scripts": {
     "dev": "astro dev",
     "devHost": "astro dev --host",
@@ -16,6 +16,7 @@
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
-    "daisyui": "^5.0.50"
+    "daisyui": "^5.0.50",
+    "tailwind-merge": "^3.3.1"
   }
 }

@@ -1,0 +1,20 @@
+---
+import { twMerge } from "tailwind-merge";
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {
+	readonly text?: string;
+	readonly className?: string | string[];
+};
+const { text = "", className, ...props } = Astro.props;
+---
+
+<div
+	set:text={text}
+	class:list={twMerge(["badge glass p-5", className])}
+	style="
+		--glass-opacity: 0.1;
+		--glass-text-shadow-opacity: 0.2;"
+	{...props}>
+	<slot />
+</div>
