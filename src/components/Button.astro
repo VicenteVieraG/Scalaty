@@ -1,0 +1,16 @@
+---
+import { twMerge } from "tailwind-merge";
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"button"> {
+	readonly text: string;
+	readonly className?: string | string[];
+};
+const { text, className, ...props } = Astro.props;
+---
+
+<button
+	set:text={text}
+	class:list={twMerge(["btn btn-wide btn-primary", className])}
+	{...props}
+/>
