@@ -15,9 +15,6 @@ interface Props extends HTMLAttributes<"div"> {
 };
 const { brands, speed = 15, className, ...props } = Astro.props;
 
-const { round } = Math;
-const trackWidthFactor: Readonly<number> = 4 / 3; // -> width / number of brands
-const trackWidth: Readonly<number> = round(brands.length * trackWidthFactor * 100);
 const isoBrand: ReadonlyArray<Brand> = brands.length? [...brands, ...brands] : [];
 ---
 
@@ -27,16 +24,14 @@ const isoBrand: ReadonlyArray<Brand> = brands.length? [...brands, ...brands] : [
 	class:list={twMerge(["mask-x-from-90% mask-x-to-95% overflow-hidden", className])}
 	{...props}>
 	<ul class:list={[
-			`w-[${trackWidth}%] min-w-[200%] flex justify-around items-center whitespace-nowrap`,
+			"w-max min-w-[200%] flex items-center",
 			`will-change-transform animate-[marquee_${speed}s_linear_infinite]`,
-			`sm:animate-[marquee_${speed * 2}s_linear_infinite]`,
-			"marquee__track"
 		]}>
 		{isoBrand.map(({ name, logo }) =>
 			<li
 				set:text={ name }
 				aria-label={ name }
-				class="min-w-fit text-center text-nowrap font-bold sm:text-xl">
+				class="flex-1 mx-12 text-center text-nowrap font-bold sm:text-xl">
 				<Image
 					src={ logo }
 					alt={ name + " logo" }
@@ -53,7 +48,7 @@ const isoBrand: ReadonlyArray<Brand> = brands.length? [...brands, ...brands] : [
 
 <style>
 	ul:is(:hover, :focus-within) {
-		animation-play-state: paused;
+		animation-play-state: paused
 	}
 
 	@keyframes marquee {
@@ -62,9 +57,9 @@ const isoBrand: ReadonlyArray<Brand> = brands.length? [...brands, ...brands] : [
 	}
 
 	@media (prefers-reduced-motion: reduce) {
-		.marquee__track {
-			animation: none;
-			transform: translateX(0);
+		ul {
+			animation: none !important;
+			transform: none !important;
 		}
 	}
 </style>
