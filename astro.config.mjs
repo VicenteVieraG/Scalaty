@@ -3,6 +3,10 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   site: "https://www.scalaty.solutions",
+  image: {
+    responsiveStyles: true,
+    layout: "constrained"
+  },
   vite: {
     plugins: [tailwindcss()]
   },

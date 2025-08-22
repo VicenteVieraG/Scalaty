@@ -3,7 +3,7 @@ import { Menu } from "@lucide/astro";
 import type { HTMLAttributes } from "astro/types";
 
 interface Props extends HTMLAttributes<"header"> {
-    className?: Readonly<string>;
+    readonly className?: string | string[];
 };
 const { className } = Astro.props;
 

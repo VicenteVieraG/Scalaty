@@ -1,0 +1,70 @@
+---
+import { Image } from "astro:assets";
+import { twMerge } from "tailwind-merge";
+import type { HTMLAttributes } from "astro/types";
+
+export interface Brand {
+	name: string;
+	logo: string;
+};
+
+interface Props extends HTMLAttributes<"div"> {
+	brands: ReadonlyArray<Brand>;
+	speed?: Readonly<number>;
+	readonly className?: string | string[];
+};
+const { brands, speed = 15, className, ...props } = Astro.props;
+
+const { round } = Math;
+const trackWidthFactor: Readonly<number> = 4 / 3; // -> width / number of brands
+const trackWidth: Readonly<number> = round(brands.length * trackWidthFactor * 100);
+const isoBrand: ReadonlyArray<Brand> = brands.length? [...brands, ...brands] : [];
+---
+
+<div
+	role="marquee"
+	aria-label="Marcas asociadas"
+	class:list={twMerge(["mask-x-from-90% mask-x-to-95% overflow-hidden", className])}
+	{...props}>
+	<ul class:list={[
+			`w-[${trackWidth}%] min-w-[200%] flex justify-around items-center whitespace-nowrap`,
+			`will-change-transform animate-[marquee_${speed}s_linear_infinite]`,
+			`sm:animate-[marquee_${speed * 2}s_linear_infinite]`,
+			"marquee__track"
+		]}>
+		{isoBrand.map(({ name, logo }) =>
+			<li
+				set:text={ name }
+				aria-label={ name }
+				class="min-w-fit text-center text-nowrap font-bold sm:text-xl">
+				<Image
+					src={ logo }
+					alt={ name + " logo" }
+					width={ 40 }
+					height={ 40 }
+					format="svg"
+					quality="high"
+					class="inline invert"
+				/>
+			</li>
+		)}
+	</ul>
+</div>
+
+<style>
+	ul:is(:hover, :focus-within) {
+		animation-play-state: paused;
+	}
+
+	@keyframes marquee {
+		from { transform: translateX(0); }
+		to { transform: translateX(-50%); }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.marquee__track {
+			animation: none;
+			transform: translateX(0);
+		}
+	}
+</style>

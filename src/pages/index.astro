@@ -1,7 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Hero from "../layouts/Hero.astro";
 import Navbar from "../components/Navbar.astro";
+import Hero from "../layouts/Hero.astro";
+import Marquee from "../components/Marquee.astro";
+import type { Brand } from "../components/Marquee.astro";
+
+const brands: ReadonlyArray<Brand> = [
+	{ name: "Scalaty", logo: "/svg/logo1.svg" },
+	{ name: "Astro", logo: "/svg/logo1.svg" },
+	{ name: "Minecraft", logo: "/svg/logo1.svg" },
+	{ name: "GitHub", logo: "/svg/logo1.svg" },
+	{ name: "Mozilla", logo: "/svg/logo1.svg" },
+	{ name: "marimari_en", logo: "/svg/logo1.svg" }
+];
 ---
 
 <Layout>
@@ -9,4 +20,8 @@ import Navbar from "../components/Navbar.astro";
 		<Navbar className="mb-16"/>
 		<Hero/>
 	</main>
+	<section>
+		<h2 class="text-center">Partnering with top industry experts</h2>
+		<Marquee brands={brands} className="mb-24"/>
+	</section>
 </Layout>
