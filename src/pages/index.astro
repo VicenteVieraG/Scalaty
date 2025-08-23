@@ -37,19 +37,21 @@ const softwareSolutions: ReadonlyArray<SoftwareSolution> = [
 ---
 
 <Layout>
-	<main class="min-h-svh">
-		<Navbar className="mb-16"/>
+	<main class="min-h-[90svh]">
+		<Navbar className="mt-4 mb-16 sm:mx-6"/>
 		<Hero/>
 	</main>
-	<section aria-label="Empresas asociadas">
-		<h1 class="text-center">Partnering with top industry experts</h1>
+	<section aria-label="Empresas asociadas" class="mb-24">
+		<h1 class="text-center text-lg">Partnering with top industry experts</h1>
 		<Marquee brands={brands} className="my-4"/>
 	</section>
 	<section aria-label="Soluciones de software">
-		<header>
-			<Badge text="Take Full Control of Your Task" />
-			<h1>Business <span>Application</span></h1>
-			<p><small>Our users love how Mondai CRM simplifies their processes and streamlines operations</small></p>
+		<header class="text-center [&_*]:mb-4">
+			<Badge text="Take Full Control of Your Task" className="font-bold" />
+			<h1 class="text-4xl font-medium md:text-5xl">Business
+				<span class="text-primary block sm:inline">Application</span>
+			</h1>
+			<p class="text-lg">Our users love how Mondai CRM simplifies their processes and streamlines operations</p>
 		</header>
 		<div role="list">
 			{softwareSolutions.map(({ title, description, icon }) =>

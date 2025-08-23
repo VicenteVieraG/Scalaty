@@ -15,7 +15,7 @@ export default defineConfig({
       provider: fontProviders.fontsource(),
       name: "Plus Jakarta Sans Variable",
       cssVariable: "--font-pjs",
-      weights: ["100 900"]
+      weights: ["100 800"]
     }],
     // csp: true
   }

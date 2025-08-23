@@ -10,10 +10,9 @@ export interface Brand {
 
 interface Props extends HTMLAttributes<"div"> {
 	brands: ReadonlyArray<Brand>;
-	speed?: Readonly<number>;
 	readonly className?: string | string[];
 };
-const { brands, speed = 15, className, ...props } = Astro.props;
+const { brands, className, ...props } = Astro.props;
 
 const isoBrand: ReadonlyArray<Brand> = brands.length? [...brands, ...brands] : [];
 ---
@@ -25,7 +24,7 @@ const isoBrand: ReadonlyArray<Brand> = brands.length? [...brands, ...brands] : [
 	{...props}>
 	<ul class:list={[
 			"w-max min-w-[200%] flex items-center",
-			`will-change-transform animate-[marquee_${speed}s_linear_infinite]`,
+			"will-change-transform animate-[marquee_15s_linear_infinite]",
 		]}>
 		{isoBrand.map(({ name, logo }) =>
 			<li
