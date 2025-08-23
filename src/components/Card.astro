@@ -1,0 +1,30 @@
+---
+import LampTile from "./LampTile.astro";
+import { Receipt, Brain, DatabaseZap } from "@lucide/astro";
+import { twMerge } from "tailwind-merge";
+import type { HTMLAttributes } from "astro/types";
+
+export interface SoftwareSolution {
+    title: string;
+    description: string;
+    icon: "Receipt" | "Brain" | "DatabaseZap";
+};
+
+interface Props extends Readonly<SoftwareSolution>,
+    Omit<HTMLAttributes<"div">, "title">{
+        readonly className?: string | string[];
+};
+const { title, description, icon, className, ...rest } = Astro.props;
+---
+
+<div class:list={twMerge(["", className])} {...rest}>
+    <LampTile>
+        { icon === "Receipt" && <Receipt/> }
+        { icon === "Brain" && <Brain/> }
+        { icon === "DatabaseZap" && <DatabaseZap/> }
+    </LampTile>
+    <article>
+        <h1 set:text={ title }/>
+        <p set:text={ description }/>
+    </article>
+</div>

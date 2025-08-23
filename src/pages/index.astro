@@ -3,7 +3,10 @@ import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Hero from "../layouts/Hero.astro";
 import Marquee from "../components/Marquee.astro";
+import Badge from "../components/Badge.astro";
+import Card from "../components/Card.astro";
 import type { Brand } from "../components/Marquee.astro";
+import type { SoftwareSolution } from "../components/Card.astro";
 
 const brands: ReadonlyArray<Brand> = [
 	{ name: "Scalaty", logo: "/svg/logo1.svg" },
@@ -13,6 +16,24 @@ const brands: ReadonlyArray<Brand> = [
 	{ name: "Mozilla", logo: "/svg/logo1.svg" },
 	{ name: "marimari_en", logo: "/svg/logo1.svg" }
 ];
+
+const softwareSolutions: ReadonlyArray<SoftwareSolution> = [
+	{
+		title: "Facturación electrónica",
+		description: "Este es un texto de prueba.",
+		icon: "Receipt"
+	},
+	{
+		title: "Inteligencia artificial empresarial",
+		description: "Este es un texto de prueba.",
+		icon: "Brain"
+	},
+	{
+		title: "Bases de datos y automatizaciones",
+		description: "Este es un texto de prueba.",
+		icon: "DatabaseZap"
+	}
+];
 ---
 
 <Layout>
@@ -20,8 +41,20 @@ const brands: ReadonlyArray<Brand> = [
 		<Navbar className="mb-16"/>
 		<Hero/>
 	</main>
-	<section>
-		<h2 class="text-center">Partnering with top industry experts</h2>
+	<section aria-label="Empresas asociadas">
+		<h1 class="text-center">Partnering with top industry experts</h1>
 		<Marquee brands={brands} className="my-4"/>
+	</section>
+	<section aria-label="Soluciones de software">
+		<header>
+			<Badge text="Take Full Control of Your Task" />
+			<h1>Business <span>Application</span></h1>
+			<p><small>Our users love how Mondai CRM simplifies their processes and streamlines operations</small></p>
+		</header>
+		<div role="list">
+			{softwareSolutions.map(({ title, description, icon }) =>
+				<Card title={ title } description={ description } icon={ icon } />
+			)}
+		</div>
 	</section>
 </Layout>
