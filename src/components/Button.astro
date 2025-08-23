@@ -11,6 +11,12 @@ const { text, className, ...props } = Astro.props;
 
 <button
 	set:text={text}
-	class:list={twMerge(["btn btn-wide btn-primary", className])}
+	class:list={twMerge([
+		"btn btn-block btn-primary",
+		"transition-transform duration-100 ease-in-out",
+		"hover:scale-90",
+		"sm:btn-wide",
+		className
+	])}
 	{...props}
 />

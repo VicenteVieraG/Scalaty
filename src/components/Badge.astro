@@ -11,7 +11,12 @@ const { text, className, ...props } = Astro.props;
 
 <div
 	set:text={text}
-	class:list={twMerge(["badge glass p-5", className])}
+	class:list={twMerge([
+		"badge badge-sm glass",
+		"text-nowrap px-6 py-5",
+		"sm:badge-md sm:px-8",
+		className
+	])}
 	style="
 		--glass-opacity: 0.1;
 		--glass-text-shadow-opacity: 0.2;"
