@@ -1,3 +1,31 @@
-<div class:list={[""]}>
-    <slot />
+<div
+	class:list={[
+		"text-primary size-fit p-1 pt-2 grid place-content-center relative isolate shadow-inner",
+		"before:bg-linear-to-r before:from-primary before:to-[#ffa67b]",
+		"before:w-[80%] before:h-0.5 before:mx-auto before:rounded-full",
+		"before:absolute before:inset-x-0 before:top-0 before:z-10",
+		"before:shadow-[0px_0px_2px_0.4px_var(--color-primary)] before:brightness-105",
+		"after:bg-linear-to-b after:from-primary after:from-0% after:to-transparent after:to-50%",
+		"after:will-change-[filter,transform] after:blur-sm after:opacity-90 after:drop-shadow-[0_14px_28px_rgba(255,140,64,0.28)] after:mix-blend-screen",
+		"after:[mask-image:radial-gradient(130%_90%_at_50%_-20%,#000_35%,transparent_78%)]",
+    	"after:[-webkit-mask-image:radial-gradient(130%_90%_at_50%_-20%,#000_35%,transparent_78%)]",
+		"after:absolute after:size-full"
+	]}>
+	<slot />
 </div>
+
+<style>
+	div {
+		--lamp-start: 20%;
+		--lamp-end: 80%;
+		--light-height: 50%;
+	}
+	div::after {
+		clip-path: polygon(
+			var(--lamp-start) 0%,
+			var(--lamp-end) 0%,
+			100% var(--light-height),
+			0% var(--light-height)
+		);
+	}
+</style>
