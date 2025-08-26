@@ -53,10 +53,14 @@ const softwareSolutions: ReadonlyArray<SoftwareSolution> = [
 			</h1>
 			<p class="text-lg">Our users love how Mondai CRM simplifies their processes and streamlines operations</p>
 		</header>
-		<div role="list">
-			{softwareSolutions.map(({ title, description, icon }) =>
-				<Card title={ title } description={ description } icon={ icon } />
-			)}
+		<div
+			role="list"
+			class:list={[
+				"grid gap-y-4",
+				"sm:grid-cols-2 sm:gap-x-4 sm:[&>div:last-child]:col-span-full",
+				"md:grid-cols-3 md:[&>div:last-child]:col-span-1"
+			]}>
+			{ softwareSolutions.map(solution => <Card { ...solution } />) }
 		</div>
 	</section>
 </Layout>

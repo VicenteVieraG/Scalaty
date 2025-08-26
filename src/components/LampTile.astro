@@ -1,12 +1,24 @@
+---
+import { twMerge } from "tailwind-merge";
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {
+	readonly className?: string | string[];
+};
+const { className, ...props } = Astro.props;
+---
+
 <div
-	class:list={[
+	class:list={twMerge([
 		"text-primary size-fit pt-2 grid place-content-center relative isolate",
 		"before:bg-linear-to-r before:from-primary before:to-[#ffa67b]",
 		"before:w-full before:h-0.5 before:rounded-full",
 		"before:absolute before:inset-x-0 before:top-0 before:z-10",
 		"before:will-change-[filter] before:brightness-105",
-		"after:bg-transparent after:size-full after:absolute after:will-change-transform"
-	]}>
+		"after:bg-transparent after:size-full after:absolute after:will-change-transform",
+		className
+	])}
+	{ ...props }>
 	<slot />
 </div>
 

@@ -12,19 +12,20 @@ export interface SoftwareSolution {
 
 interface Props extends Readonly<SoftwareSolution>,
 	Omit<HTMLAttributes<"div">, "title">{
+		iconSize?: Readonly<number>;
 		readonly className?: string | string[];
 };
-const { title, description, icon, className, ...rest } = Astro.props;
+const { title, description, icon, iconSize = 28, className, ...rest } = Astro.props;
 ---
 
-<div class:list={twMerge(["", className])} {...rest}>
-	<LampTile>
-		{ icon === "Receipt" && <Receipt/> }
-		{ icon === "Brain" && <Brain/> }
-		{ icon === "DatabaseZap" && <DatabaseZap/> }
+<div class:list={twMerge(["card bg-base-200", className])} {...rest}>
+	<LampTile aria-label={ icon + "ícono"} className="ml-6">
+		{ icon === "Receipt" && <Receipt size={ iconSize }/> }
+		{ icon === "Brain" && <Brain size={ iconSize }/> }
+		{ icon === "DatabaseZap" && <DatabaseZap size={ iconSize }/> }
 	</LampTile>
-	<article>
-		<h1 set:text={ title }/>
+	<article class="card-body">
+		<h1 class="card-title" set:text={ title }/>
 		<p set:text={ description }/>
 	</article>
 </div>
