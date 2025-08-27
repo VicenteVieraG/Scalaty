@@ -1,0 +1,24 @@
+---
+import { HandMetal } from "@lucide/astro";
+import { twMerge } from "tailwind-merge";
+import type { HTMLAttributes } from "astro/types";
+
+export interface FeatureInfo {
+	title: string;
+	description: string;
+	icon: "HandMetal";
+};
+
+interface Props extends Readonly<FeatureInfo>,
+	Omit<HTMLAttributes<"article">, "title"> {
+		readonly className?: string | string[];
+};
+const { title, description, icon, className, ...props } = Astro.props;
+---
+
+<article class:list={twMerge(["", className])} {...props}>
+	<h2 set:text={ title }>
+		{icon === "HandMetal" && <HandMetal size={32}/>}
+	</h2>
+	<p set:text={ description } />
+</article>

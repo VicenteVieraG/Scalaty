@@ -1,0 +1,34 @@
+---
+import { Image } from "astro:assets";
+import { twMerge } from "tailwind-merge";
+import type { HTMLAttributes } from "astro/types";
+
+export interface Highlights {
+	feature: string;
+	title: string;
+	description: string;
+};
+
+interface Props extends Highlights,
+	Omit<HTMLAttributes<"article">, "title"> {
+		imageSrc?: Readonly<string>;
+		imagePosition?: Readonly<"right" | "left">;
+		children: any;
+		readonly className?: string | string[];
+	};
+const { feature, title, description, imageSrc, imagePosition = "right", className, ...props } = Astro.props;
+---
+
+<article class:list={twMerge(["", className])} {...props}>
+	<header>
+		<h1 set:text={ feature } />
+		<h2 set:text={ title } />
+		<p set:text={ description } />
+	</header>
+	<div role="list">
+		<slot />
+	</div>
+	<div class="size-32 bg-white">
+		HOLA CRAYOLA
+	</div>
+</article>

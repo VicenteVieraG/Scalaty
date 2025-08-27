@@ -1,7 +1,7 @@
 {
   "name": "scalaty",
   "type": "module",
-  "version": "0.2.6",
+  "version": "0.3.0",
   "scripts": {
     "dev": "astro dev",
     "devHost": "astro dev --host",

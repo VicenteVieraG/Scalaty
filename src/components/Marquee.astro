@@ -24,13 +24,13 @@ const isoBrand: ReadonlyArray<Brand> = brands.length? [...brands, ...brands] : [
 	{...props}>
 	<ul class:list={[
 			"w-max min-w-[200%] flex items-center",
-			"will-change-transform animate-[marquee_15s_linear_infinite]",
+			"will-change-transform animate-[marquee_25s_linear_infinite]",
 		]}>
 		{isoBrand.map(({ name, logo }) =>
 			<li
 				set:text={ name }
 				aria-label={ name }
-				class="flex-1 mx-12 text-center text-nowrap font-bold sm:text-xl">
+				class="flex-1 mx-12 text-center text-nowrap font-extrabold sm:text-xl">
 				<Image
 					src={ logo }
 					alt={ name + " logo" }
