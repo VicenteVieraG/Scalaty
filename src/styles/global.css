@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+@theme inline {
+  --font-pjs: var(--font-pjs);
+}
 
 @plugin "daisyui/theme" {
   name: "Scalaty";

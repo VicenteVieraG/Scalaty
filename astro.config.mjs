@@ -12,10 +12,10 @@ export default defineConfig({
   },
   experimental: {
     fonts: [{
-      provider: fontProviders.fontsource(),
-      name: "Plus Jakarta Sans Variable",
+      provider: fontProviders.google(),
+      name: "Plus Jakarta Sans",
       cssVariable: "--font-pjs",
-      weights: ["100 800"]
+      weights: ["200 800"]
     }],
     // csp: true
   }
