@@ -2,6 +2,7 @@
 import { HandMetal } from "@lucide/astro";
 import { twMerge } from "tailwind-merge";
 import type { HTMLAttributes } from "astro/types";
+import type { AstroComponent } from "@lucide/astro";
 
 export interface FeatureInfo {
 	title: string;
@@ -14,10 +15,16 @@ interface Props extends Readonly<FeatureInfo>,
 		readonly className?: string | string[];
 	};
 const { title, description, icon, className, ...props } = Astro.props;
+
+let Icon: AstroComponent;
+switch(icon){
+	case "HandMetal": Icon = HandMetal; break;
+	default: Icon = HandMetal;
+};
 ---
 
-<article class:list={twMerge(["grid grid-cols-[auto_1fr] grid-rows-2", className])} {...props}>
-	{ icon === "HandMetal" && <HandMetal class="text-primary row-span-full" size={25} stroke-width={1.2} /> }
+<article role="listitem" class:list={twMerge(["grid grid-cols-[auto_1fr] grid-rows-[auto_auto] gap-2", className])} { ...props }>
+	<Icon class="text-primary row-span-full" size={25} stroke-width={1.2} />
 	<h3 class="font-semibold" set:text={ title } />
 	<p class="text-sm" set:text={ description } />
 </article>

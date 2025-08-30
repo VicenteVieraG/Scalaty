@@ -3,6 +3,7 @@ import LampTile from "./LampTile.astro";
 import { Receipt, Brain, DatabaseZap } from "@lucide/astro";
 import { twMerge } from "tailwind-merge";
 import type { HTMLAttributes } from "astro/types";
+import type { AstroComponent } from "@lucide/astro";
 
 export interface SoftwareSolution {
 	title: string;
@@ -11,21 +12,27 @@ export interface SoftwareSolution {
 };
 
 interface Props extends Readonly<SoftwareSolution>,
-	Omit<HTMLAttributes<"div">, "title">{
+	Omit<HTMLAttributes<"div">, "title"> {
 		iconSize?: Readonly<number>;
 		readonly className?: string | string[];
 };
 const { title, description, icon, iconSize = 28, className, ...rest } = Astro.props;
+
+let Icon: AstroComponent;
+switch(icon) {
+	case "Receipt": Icon = Receipt; break;
+	case "Brain": Icon = Brain; break;
+	case "DatabaseZap": Icon = DatabaseZap; break;
+	default: Icon = DatabaseZap;
+};
 ---
 
-<div class:list={twMerge(["card bg-base-200", className])} {...rest}>
-	<LampTile aria-label={ icon + "ícono"} className="ml-6">
-		{ icon === "Receipt" && <Receipt size={ iconSize }/> }
-		{ icon === "Brain" && <Brain size={ iconSize }/> }
-		{ icon === "DatabaseZap" && <DatabaseZap size={ iconSize }/> }
+<div role="listitem" class:list={twMerge(["card bg-base-200", className])} { ...rest }>
+	<LampTile aria-label={ icon + " ícono"} className="ml-6">
+		<Icon size={ iconSize } />
 	</LampTile>
 	<article class="card-body">
-		<h1 class="card-title" set:text={ title }/>
-		<p set:text={ description }/>
+		<h1 class="card-title" set:text={ title } />
+		<p set:text={ description } />
 	</article>
 </div>

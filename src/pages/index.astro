@@ -19,15 +19,17 @@ import { brands, softwareSolutions, featureSections } from "../data/main";
 		<h1 class="text-center text-lg">Partnering with top industry experts</h1>
 		<Marquee brands={ brands } className="my-4" />
 	</section>
-	<section aria-label="Soluciones de software">
+	<section aria-label="Soluciones de software" class="mb-24">
 		<SoftwareSolutions solutions={ softwareSolutions } />
 	</section>
 	<section aria-label="Funciones">
 		{featureSections.map(({ highlights, features }, index) =>
-			<FeatureHighlights { ...highlights } imageSrc="" imagePosition={ index % 2 === 0? "left" : "right" }>
-				{features.map(feature =>
-					<FeatureCard { ...feature } />
-				)}
+			<FeatureHighlights
+				imageSrc=""
+				imagePosition={ ++index % 2 === 0? "left" : "right" }
+				className="mb-24 last:mb-auto"
+				{ ...highlights }>
+				{features.map(feature => <FeatureCard { ...feature } />)}
 			</FeatureHighlights>
 		)}
 	</section>

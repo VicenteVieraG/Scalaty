@@ -3,6 +3,8 @@ import type { SoftwareSolution } from "../components/Card.astro";
 import type { Highlights } from "../components/FeatureHighlights.astro";
 import type { FeatureInfo } from "../components/FeatureCard.astro";
 
+type Solutions = [SoftwareSolution, SoftwareSolution, SoftwareSolution];
+
 export interface FeatureSection {
 	readonly highlights: Highlights;
 	readonly features: Array<FeatureInfo>;
@@ -17,7 +19,7 @@ export const brands: ReadonlyArray<Brand> = [
 	{ name: "marimari_en", logo: "/svg/logo1.svg" }
 ];
 
-export const softwareSolutions: ReadonlyArray<SoftwareSolution> = [
+export const softwareSolutions: Readonly<Solutions> = [
 	{
 		title: "Facturación electrónica",
 		description: "Este es un texto de prueba.",

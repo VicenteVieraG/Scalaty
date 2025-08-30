@@ -12,15 +12,15 @@ export interface Highlights {
 interface Props extends Readonly<Highlights>,
 	Omit<HTMLAttributes<"article">, "title"> {
 		imageSrc?: Readonly<string>;
-		imagePosition?: Readonly<"right" | "left">;
+		imagePosition: Readonly<"right" | "left">;
 		children: any;
 		readonly className?: string | string[];
 	};
-const { feature, title, description, imageSrc, imagePosition = "right", className, ...props } = Astro.props;
+const { feature, title, description, imageSrc, imagePosition, className, ...props } = Astro.props;
 ---
 
-<article class:list={twMerge(["", className])} {...props}>
-	<header class="text-center md:text-left">
+<article class:list={twMerge(["grid grid-rows-3 place-items-center lg:grid-cols-2 lg:grid-rows-2 lg:grid-flow-col", className])} { ...props }>
+	<header class="text-center [&>*]:mb-6 md:text-left">
 		<h1 class="text-primary text-sm font-semibold" set:text={ feature } />
 		<h2 class="text-4xl font-semibold">
 			{ title.first }
@@ -28,10 +28,10 @@ const { feature, title, description, imageSrc, imagePosition = "right", classNam
 		</h2>
 		<p set:text={ description } />
 	</header>
-	<div role="list">
+	<div role="list" class="[&>article]:mb-6">
 		<slot />
 	</div>
-	<div class="size-32 bg-white">
+	<div class={`size-3/4 ${imagePosition === "left" && "lg:order-first"} lg:row-span-full bg-white`}>
 		HOLA CRAYOLA
 	</div>
 </article>
