@@ -5,11 +5,11 @@ import type { HTMLAttributes } from "astro/types";
 
 export interface Highlights {
 	feature: string;
-	title: string;
+	title: { first: string; highlight: string; };
 	description: string;
 };
 
-interface Props extends Highlights,
+interface Props extends Readonly<Highlights>,
 	Omit<HTMLAttributes<"article">, "title"> {
 		imageSrc?: Readonly<string>;
 		imagePosition?: Readonly<"right" | "left">;
@@ -20,9 +20,12 @@ const { feature, title, description, imageSrc, imagePosition = "right", classNam
 ---
 
 <article class:list={twMerge(["", className])} {...props}>
-	<header>
-		<h1 set:text={ feature } />
-		<h2 set:text={ title } />
+	<header class="text-center md:text-left">
+		<h1 class="text-primary text-sm font-semibold" set:text={ feature } />
+		<h2 class="text-4xl font-semibold">
+			{ title.first }
+			<span class="text-primary" set:text={ title.highlight } />
+		</h2>
 		<p set:text={ description } />
 	</header>
 	<div role="list">

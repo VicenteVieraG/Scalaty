@@ -12,13 +12,12 @@ export interface FeatureInfo {
 interface Props extends Readonly<FeatureInfo>,
 	Omit<HTMLAttributes<"article">, "title"> {
 		readonly className?: string | string[];
-};
+	};
 const { title, description, icon, className, ...props } = Astro.props;
 ---
 
-<article class:list={twMerge(["", className])} {...props}>
-	<h2 set:text={ title }>
-		{icon === "HandMetal" && <HandMetal size={32}/>}
-	</h2>
-	<p set:text={ description } />
+<article class:list={twMerge(["grid grid-cols-[auto_1fr] grid-rows-2", className])} {...props}>
+	{ icon === "HandMetal" && <HandMetal class="text-primary row-span-full" size={25} stroke-width={1.2} /> }
+	<h3 class="font-semibold" set:text={ title } />
+	<p class="text-sm" set:text={ description } />
 </article>

@@ -30,7 +30,7 @@ const isoBrand: ReadonlyArray<Brand> = brands.length? [...brands, ...brands] : [
 			<li
 				set:text={ name }
 				aria-label={ name }
-				class="flex-1 mx-12 text-center text-nowrap font-extrabold sm:text-xl">
+				class="flex-1 mx-12 uppercase text-center text-nowrap font-extrabold sm:text-xl">
 				<Image
 					src={ logo }
 					alt={ name + " logo" }
