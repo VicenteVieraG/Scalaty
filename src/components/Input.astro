@@ -1,0 +1,15 @@
+---
+import { twMerge } from "tailwind-merge";
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"input"> {
+    id: Readonly<string>;
+    readonly className?: string | string[];
+};
+const { id, className, ...props } = Astro.props;
+---
+
+<label for={ id } class:list={twMerge(["input validator", className])}>
+    <slot />
+    <input id={ id } { ...props }/>
+</label>

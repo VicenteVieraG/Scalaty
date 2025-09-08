@@ -1,7 +1,7 @@
 {
   "name": "scalaty",
   "type": "module",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "scripts": {
     "dev": "astro dev",
     "devHost": "astro dev --host",
@@ -12,7 +12,7 @@
   "dependencies": {
     "@lucide/astro": "^0.536.0",
     "@tailwindcss/vite": "^4.1.11",
-    "astro": "^5.12.7",
+    "astro": "5.13.6",
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {

@@ -1,0 +1,57 @@
+---
+import Form from "./Form.astro";
+import Input from "./Input.astro";
+import { Mail, SendHorizontal } from "@lucide/astro";
+import { twMerge } from "tailwind-merge";
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"footer"> {
+	readonly className?: string | string[];
+};
+const { className, ...props } = Astro.props;
+---
+
+<footer
+	class:list={twMerge([
+		"glass text-center",
+		"w-[90%] min-w-xs mx-auto px-6 py-12 sm:pb-28",
+		"rounded-box",
+		className
+	])}
+	{ ...props }>
+	<header class="mb-6">
+		<h1 class="text-4xl font-bold">
+			Start Your Free
+			<span class="text-primary" set:text="Trial Today" />
+		</h1>
+		<p class="max-w-2xs mx-auto"><small>Unlock the full potential of your data with our comprehensive SaaS analytics platform.</small></p>
+	</header>
+	<Form
+		name="waitlistForm"
+		action=""
+		method="post"
+		autocomplete="on"
+		className="join">
+		<Input
+			id="FormEmail"
+			name="email"
+			type="email"
+			inputmode="email"
+			placeholder="mail@site.com"
+			title="Ingrese su email"
+			className="join-item"
+			required>
+			<Mail />
+		</Input>
+		<button
+			type="submit"
+			class:list={[
+				"btn btn-primary join-item w-fit group"
+			]}>
+			<SendHorizontal class:list={[
+				"size-[1.5em] transition duration-150 ease-in-out",
+				"group-hover:text-white"
+			]}/>
+		</button>
+	</Form>
+</footer>
