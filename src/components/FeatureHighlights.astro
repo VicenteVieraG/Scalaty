@@ -7,11 +7,11 @@ export interface Highlights {
 	feature: string;
 	title: { first: string; highlight: string; };
 	description: string;
+	imageSrc: string;
 };
 
 interface Props extends Readonly<Highlights>,
 	Omit<HTMLAttributes<"article">, "title"> {
-		imageSrc?: Readonly<string>;
 		imagePosition: Readonly<"right" | "left">;
 		children: any;
 		readonly className?: string | string[];
@@ -32,6 +32,6 @@ const { feature, title, description, imageSrc, imagePosition, className, ...prop
 		<slot />
 	</div>
 	<div class={`size-3/4 ${imagePosition === "left" && "lg:order-first"} lg:row-span-full bg-white`}>
-		HOLA CRAYOLA
+		{ imageSrc }
 	</div>
 </article>

@@ -23,10 +23,9 @@ import { brands, softwareSolutions, featureSections } from "../data/main";
 	<section aria-label="Soluciones de software" class="mb-24">
 		<SoftwareSolutions solutions={ softwareSolutions } />
 	</section>
-	<section aria-label="Funciones">
+	<section aria-label="Funciones" class="mb-24">
 		{featureSections.map(({ highlights, features }, index) =>
 			<FeatureHighlights
-				imageSrc=""
 				imagePosition={ ++index % 2 === 0? "left" : "right" }
 				className="mb-24 last:mb-auto"
 				{ ...highlights }>
@@ -34,5 +33,5 @@ import { brands, softwareSolutions, featureSections } from "../data/main";
 			</FeatureHighlights>
 		)}
 	</section>
-	<Footer aria-label="" />
+	<Footer aria-label="Pie de página" class=""/>
 </Layout>

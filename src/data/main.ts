@@ -42,7 +42,8 @@ export const featureSections: ReadonlyArray<FeatureSection> = [
 		highlights: {
 			feature: "Data Insights",
 			title: { first: "Improved", highlight: "Decision-Making" },
-			description: "By leveraging real-time insights and comprehensive data analysis, you can make informed decisions with confidence, reducing uncertainty."
+			description: "By leveraging real-time insights and comprehensive data analysis, you can make informed decisions with confidence, reducing uncertainty.",
+			imageSrc: ""
 		},
 		features: [
 			{
@@ -61,7 +62,8 @@ export const featureSections: ReadonlyArray<FeatureSection> = [
 		highlights: {
 			feature: "Automate Tasks",
 			title: { first: "Increased", highlight: " Operational Efficiency" },
-			description: "With a clear view of your data, you can identify inefficiencies and streamline operations."
+			description: "With a clear view of your data, you can identify inefficiencies and streamline operations.",
+			imageSrc: ""
 		},
 		features: [
 			{
@@ -80,7 +82,8 @@ export const featureSections: ReadonlyArray<FeatureSection> = [
 		highlights: {
 			feature: "Customer Insights",
 			title: { first: "Enhanced", highlight: "Customer Satisfaction" },
-			description: "Use customer behavior data to tailor your products and services to meet user needs more effectively."
+			description: "Use customer behavior data to tailor your products and services to meet user needs more effectively.",	
+			imageSrc: ""
 		},
 		features: [
 			{
