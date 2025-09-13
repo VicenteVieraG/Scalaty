@@ -34,24 +34,34 @@ const { className, ...props } = Astro.props;
 		className="join">
 		<Input
 			id="FormEmail"
-			name="email"
 			type="email"
-			inputmode="email"
-			placeholder="mail@site.com"
+			name="email"
 			title="Ingrese su email"
+			placeholder="mail@site.com"
+			inputmode="email"
 			className="join-item"
+			aria-label="Campo de email"
+			aria-multiline="false"
+			aria-autocomplete="inline"
+			aria-placeholder="Ingrese su email"
+			aria-required
 			required>
-			<Mail />
+			<Mail aria-label="Ícono de email" />
 		</Input>
 		<button
+			aria-label="Enviar"
 			type="submit"
+			title="Enviar"
 			class:list={[
 				"btn btn-primary join-item w-fit group"
 			]}>
-			<SendHorizontal class:list={[
-				"size-[1.5em] transition duration-150 ease-in-out",
-				"group-hover:text-white"
-			]}/>
+			<SendHorizontal
+				aria-label="Ícono enviar formulario"
+				class:list={[
+					"size-[1.5em] transition duration-150 ease-in-out",
+					"group-hover:text-white"
+				]}
+			/>
 		</button>
 	</Form>
 </footer>

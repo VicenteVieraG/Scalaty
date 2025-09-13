@@ -1,0 +1,50 @@
+---
+import Avatar from "./Avatar.astro";
+import { twMerge } from "tailwind-merge";
+import type { HTMLAttributes } from "astro/types";
+
+export interface Testimonial {
+	testimonial: string;
+	testimonialSrc: string;
+	author: string;
+	authorSocial: string;
+	authorPP: string;
+	company?: string;
+};
+
+interface Props extends Readonly<Testimonial>,
+	HTMLAttributes<"blockquote"> {
+		readonly className?: string | string[];
+	};
+const {
+	testimonial,
+	testimonialSrc,
+	author,
+	authorSocial,
+	authorPP,
+	company,
+	className,
+	...props
+} = Astro.props;
+---
+
+<blockquote
+	aria-label={ "Testimonio de " + author }
+	cite={ testimonialSrc }
+	class:list={twMerge(["", className])}
+	{ ...props }>
+	<p class="" set:text={ "“" + testimonial + "”" } />
+	<div role="contentinfo" aria-label="Detalles del autor">
+		<Avatar
+			aria-label={ "Imagen de perfil de " + author }
+			source={ authorPP }
+			alt={ author + " Profile Picture" }
+			size={ 24 }
+		/>
+		<b aria-label="Nombre del autor" set:text={ author } />
+		<cite aria-label="Perfil de redes sociales">
+			<a href={ authorSocial } set:text={ authorSocial } />
+		</cite>
+		<slot />
+	</div>
+</blockquote>

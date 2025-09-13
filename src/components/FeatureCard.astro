@@ -24,7 +24,7 @@ switch(icon){
 ---
 
 <article role="listitem" class:list={twMerge(["grid grid-cols-[auto_1fr] grid-rows-[auto_auto] gap-2", className])} { ...props }>
-	<Icon class="text-primary row-span-full" size={25} stroke-width={1.2} />
+	<Icon aria-label={ "Ícono " + icon } class="text-primary row-span-full" size={25} stroke-width={1.2} />
 	<h3 class="font-semibold" set:text={ title } />
 	<p class="text-sm" set:text={ description } />
 </article>

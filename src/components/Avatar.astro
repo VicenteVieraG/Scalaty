@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets";
+import { twMerge } from "tailwind-merge";
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {
+	source: Readonly<string>;
+	alt: Readonly<string>;
+	size: Readonly<number>;
+	readonly className?: string | string[];
+};
+const { source, alt, size, className, ...props } = Astro.props;
+---
+
+<div role="img" class:list={twMerge(["avatar", className])} { ...props }>
+	<div aria-hidden class="rounded-full">
+		<Image
+			aria-hidden
+			inferSize
+			src={ source }
+			alt={ alt }
+			width={ size }
+			height={ size }
+			quality="max"
+		/>
+	</div>
+</div>
