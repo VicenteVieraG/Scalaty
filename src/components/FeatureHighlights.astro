@@ -16,22 +16,39 @@ interface Props extends Readonly<Highlights>,
 		children: any;
 		readonly className?: string | string[];
 	};
-const { feature, title, description, imageSrc, imagePosition, className, ...props } = Astro.props;
+const {
+	feature,
+	title,
+	description,
+	imageSrc,
+	imagePosition,
+	className,
+	...props
+} = Astro.props;
 ---
 
-<article class:list={twMerge(["grid grid-rows-3 place-items-center lg:grid-cols-2 lg:grid-rows-2 lg:grid-flow-col", className])} { ...props }>
-	<header class="text-center [&>*]:mb-6 md:text-left">
-		<h1 class="text-primary text-sm font-semibold" set:text={ feature } />
-		<h2 class="text-4xl font-semibold">
+<article
+	class:list={twMerge([
+		"grid lg:grid-cols-2 lg:grid-rows-[auto_auto] lg:grid-flow-col",
+		className
+	])}
+	{ ...props }>
+	<header class="text-center font-semibold [&>*]:mb-6 md:text-left">
+		<h1 class="text-primary text-sm" set:text={ feature } />
+		<h2 class="text-4xl">
 			{ title.first }
 			<span class="text-primary" set:text={ title.highlight } />
 		</h2>
-		<p set:text={ description } />
+		<p class="font-normal" set:text={ description } />
 	</header>
 	<div role="list" class="[&>article]:mb-6">
 		<slot />
 	</div>
-	<div class={`size-3/4 ${imagePosition === "left" && "lg:order-first"} lg:row-span-full bg-white`}>
+	<div
+		class:list={[
+			"bg-white w-[90%] h-80 m-auto lg:size-[90%] lg:row-span-full",
+			imagePosition === "left" && "lg:order-first"
+		]}>
 		{ imageSrc }
 	</div>
 </article>
