@@ -1,50 +1,83 @@
 ---
+import { Image } from "astro:assets";
 import Avatar from "./Avatar.astro";
 import { twMerge } from "tailwind-merge";
 import type { HTMLAttributes } from "astro/types";
 
-export interface Testimonial {
-	testimonial: string;
-	testimonialSrc: string;
-	author: string;
-	authorSocial: string;
-	authorPP: string;
-	company?: string;
+interface Testimonial {
+	cite: string;
+	source: string;
 };
 
-interface Props extends Readonly<Testimonial>,
+interface Company {
+	name: string;
+	logo: string;
+};
+
+interface SocialNetwork {
+	link: string;
+	userName: string;
+	profilePicture: string;
+};
+
+interface Author {
+	name: string;
+	social: SocialNetwork;
+	company?: Company;
+};
+
+export interface TestimonialCard {
+	testimonial: Testimonial;
+	author: Author;
+};
+
+interface Props extends Readonly<TestimonialCard>,
 	HTMLAttributes<"blockquote"> {
 		readonly className?: string | string[];
 	};
 const {
 	testimonial,
-	testimonialSrc,
 	author,
-	authorSocial,
-	authorPP,
-	company,
 	className,
 	...props
 } = Astro.props;
+
+const { cite, source } = testimonial;
+const { name, social, company } = author;
+const { link, userName, profilePicture } = social;
+
+const avatarSize: Readonly<number> = 24;
+const logoSize: Readonly<number> = 24;
 ---
 
 <blockquote
-	aria-label={ "Testimonio de " + author }
-	cite={ testimonialSrc }
+	aria-label={ "Testimonio de " + name }
+	cite={ source }
 	class:list={twMerge(["", className])}
 	{ ...props }>
-	<p class="" set:text={ "“" + testimonial + "”" } />
+	<p class="" set:text={ "“" + cite + "”" } />
 	<div role="contentinfo" aria-label="Detalles del autor">
 		<Avatar
-			aria-label={ "Imagen de perfil de " + author }
-			source={ authorPP }
-			alt={ author + " Profile Picture" }
-			size={ 24 }
+			aria-label={ "Imagen de perfil de " + name }
+			source={ profilePicture }
+			alt={ "Imagen de perfil de " + name }
+			size={ avatarSize }
 		/>
-		<b aria-label="Nombre del autor" set:text={ author } />
+		<b aria-label="Nombre del autor" set:text={ name } />
 		<cite aria-label="Perfil de redes sociales">
-			<a href={ authorSocial } set:text={ authorSocial } />
+			<a href={ link } set:text={ "@" + userName } />
 		</cite>
-		<slot />
+		{company &&
+			<figure aria-label={ "Logo de " + company.name }>
+				<Image
+					src={ company.logo }
+					alt={ "Logo de " + company.name }
+					width={ logoSize }
+					height={ logoSize }
+					quality="max"
+				/>
+				<figcaption set:text={ company.name } />
+			</figure>
+		}
 	</div>
 </blockquote>
