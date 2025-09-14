@@ -1,0 +1,16 @@
+---
+import Navbar from "../Navbar.astro";
+import Hero from "../Hero.astro";
+import { twMerge } from "tailwind-merge";
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"main"> {
+	readonly className?: string | string[];
+};
+const { className, ...props } = Astro.props;
+---
+
+<main class:list={twMerge(["min-h-[90svh]", className])} { ...props }>
+	<Navbar className="mt-4 mb-16 sm:mx-6" />
+	<Hero />
+</main>

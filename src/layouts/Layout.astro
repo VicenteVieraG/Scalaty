@@ -1,6 +1,12 @@
 ---
 import "../styles/global.css";
 import { Font } from "astro:assets";
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"body"> {
+	readonly className?: string | string[];
+};
+const { className, ...props } = Astro.props;
 
 const { SITE } = import.meta.env;
 const TITLE: Readonly<string> = "Scalaty Solutions";
@@ -44,7 +50,7 @@ const AUTHOR: Readonly<string> = "Vicente Javier Viera Guizar";
 		<meta name="robots" content="index, follow" />
 		<Font cssVariable="--font-pjs" preload />
 	</head>
-	<body class="font-pjs px-4 pt-2 pb-12">
+	<body class:list={["font-pjs px-4 pt-2 pb-12", className]} { ...props }>
 		<slot />
 	</body>
 </html>

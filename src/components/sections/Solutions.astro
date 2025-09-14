@@ -1,0 +1,15 @@
+---
+import SoftwareSolutions from "../SoftwareSolutions.astro";
+import { twMerge } from "tailwind-merge";
+import { softwareSolutions } from "../../data/main";
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"section"> {
+	readonly className?: string | string[];
+};
+const { className, ...props } = Astro.props;
+---
+
+<section class:list={twMerge(["", className])} { ...props }>
+	<SoftwareSolutions solutions={ softwareSolutions } />
+</section>

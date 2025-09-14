@@ -1,0 +1,23 @@
+---
+import FeatureHighlights from "../FeatureHighlights.astro";
+import FeatureCard from "../FeatureCard.astro";
+import { twMerge } from "tailwind-merge";
+import { featureSections } from "../../data/main";
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"section"> {
+	readonly className?: string | string[];
+};
+const { className, ...props } = Astro.props;
+---
+
+<section class:list={twMerge(["", className])} { ...props }>
+	{featureSections.map(({ highlights, features }, index) =>
+		<FeatureHighlights
+			imagePosition={ ++index % 2 === 0? "left" : "right" }
+			className="mb-24 last:mb-auto"
+			{ ...highlights }>
+			{features.map(feature => <FeatureCard { ...feature } />)}
+		</FeatureHighlights>
+	)}
+</section>

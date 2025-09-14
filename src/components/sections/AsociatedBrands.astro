@@ -1,0 +1,16 @@
+---
+import Marquee from "../Marquee.astro";
+import { twMerge } from "tailwind-merge";
+import { brands } from "../../data/main";
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"section"> {
+	readonly className?: string | string[];
+};
+const { className, ...props } = Astro.props;
+---
+
+<section class:list={twMerge(["", className])} { ...props }>
+	<h1 class="text-center text-lg">Partnering with top industry experts</h1>
+	<Marquee brands={ brands } className="my-4" />
+</section>

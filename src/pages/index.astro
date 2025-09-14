@@ -1,39 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.astro";
-import Hero from "../components/Hero.astro";
-import Marquee from "../components/Marquee.astro";
-import SoftwareSolutions from "../components/SoftwareSolutions.astro";
-import FeatureHighlights from "../components/FeatureHighlights.astro";
-import FeatureCard from "../components/FeatureCard.astro";
-import Testimonials from "../components/Testimonials.astro";
-import Footer from "../components/Footer.astro";
-
-import { brands, softwareSolutions, featureSections } from "../data/main";
+import Main from "../components/sections/Main.astro";
+import AsociatedBrands from "../components/sections/AsociatedBrands.astro";
+import Solutions from "../components/sections/Solutions.astro";
+import Features from "../components/sections/Features.astro";
+import Testimonials from "../components/sections/Testimonials.astro";
+import Footer from "../components/sections/Footer.astro";
 ---
 
 <Layout>
-	<main class="min-h-[90svh]">
-		<Navbar className="mt-4 mb-16 sm:mx-6" />
-		<Hero />
-	</main>
-	<section aria-label="Empresas asociadas" class="mb-24">
-		<h1 class="text-center text-lg">Partnering with top industry experts</h1>
-		<Marquee brands={ brands } className="my-4" />
-	</section>
-	<section aria-label="Soluciones de software" class="mb-24">
-		<SoftwareSolutions solutions={ softwareSolutions } />
-	</section>
-	<section aria-label="Funciones" class="mb-24">
-		{featureSections.map(({ highlights, features }, index) =>
-			<FeatureHighlights
-				imagePosition={ ++index % 2 === 0? "left" : "right" }
-				className="mb-24 last:mb-auto"
-				{ ...highlights }>
-				{features.map(feature => <FeatureCard { ...feature } />)}
-			</FeatureHighlights>
-		)}
-	</section>
-	<Testimonials aria-label="Testimonios" />
+	<Main />
+	<AsociatedBrands aria-label="Empresas asociadas" className="mb-24" />
+	<Solutions aria-label="Soluciones de software" className="mb-24" />
+	<Features aria-label="Funciones" className="mb-24" />
+	<Testimonials aria-label="Testimonios" className="mb-24" />
 	<Footer aria-label="Pie de página" />
 </Layout>
