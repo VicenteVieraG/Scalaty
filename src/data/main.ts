@@ -11,12 +11,12 @@ export interface FeatureSection {
 };
 
 export const brands: ReadonlyArray<Brand> = [
-	{ name: "IMPORTACIONES GUTIÉRREZ", logo: "/svg/logo1.svg" },
-	{ name: "Astro", logo: "/svg/logo1.svg" },
-	{ name: "Minecraft", logo: "/svg/logo1.svg" },
-	{ name: "GitHub", logo: "/svg/logo1.svg" },
-	{ name: "Mozilla", logo: "/svg/logo1.svg" },
-	{ name: "marimari_en", logo: "/svg/logo1.svg" }
+	{ name: "IMPORTACIONES GUTIÉRREZ", logo: "/svg/scalatyLogo.svg" },
+	{ name: "Astro", logo: "/svg/scalatyLogo.svg" },
+	{ name: "Minecraft", logo: "/svg/scalatyLogo.svg" },
+	{ name: "GitHub", logo: "/svg/scalatyLogo.svg" },
+	{ name: "Mozilla", logo: "/svg/scalatyLogo.svg" },
+	{ name: "marimari_en", logo: "/svg/scalatyLogo.svg" }
 ];
 
 export const softwareSolutions: Readonly<Solutions> = [

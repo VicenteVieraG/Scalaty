@@ -12,7 +12,7 @@ const { SITE } = import.meta.env;
 const TITLE: Readonly<string> = "Scalaty Solutions";
 const NAME: Readonly<string> = "Scalaty";
 const DESCRIPTION: Readonly<string> = "Optimizamos la operación de tu empresa, para que opere en Piloto Automático";
-const IMAGE: Readonly<string> = "/scalatyLogo.webp";
+const IMAGE: Readonly<string> = "/svg/scalatyLogo.svg";
 const IMAGE_ALT: Readonly<string> = "Scalaty logo";
 const AUTHOR: Readonly<string> = "Vicente Javier Viera Guizar";
 ---
@@ -44,9 +44,9 @@ const AUTHOR: Readonly<string> = "Vicente Javier Viera Guizar";
 		<meta name="twitter:image:alt" content={ IMAGE_ALT } />
 
 		<meta name="theme-color" content="#063E8B" />
-		<link rel="icon" type="image/svg+xml" href="/scalatyLogo.ico" />
+		<link rel="icon" type="image/svg+xml" href={ IMAGE } />
 
-		<meta name="generator" content={Astro.generator} />
+		<meta name="generator" content={ Astro.generator } />
 		<meta name="robots" content="index, follow" />
 		<Font cssVariable="--font-pjs" preload />
 	</head>
