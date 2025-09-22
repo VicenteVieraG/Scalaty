@@ -1,7 +1,7 @@
-import type { Brand } from "../components/Marquee.astro";
-import type { SoftwareSolution } from "../components/Card.astro";
-import type { Highlights } from "../components/FeatureHighlights.astro";
-import type { FeatureInfo } from "../components/FeatureCard.astro";
+import type { Brand } from "@components/Marquee.astro";
+import type { SoftwareSolution } from "@components/Card.astro";
+import type { Highlights } from "@components/FeatureHighlights.astro";
+import type { FeatureInfo } from "@components/FeatureCard.astro";
 
 type Solutions = [SoftwareSolution, SoftwareSolution, SoftwareSolution];
 

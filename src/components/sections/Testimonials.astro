@@ -1,8 +1,8 @@
 ---
-import TestimonialCard from "../TestimonialCard.astro";
+import TestimonialCard from "@components/TestimonialCard.astro";
 import { twMerge } from "tailwind-merge";
 import type { HTMLAttributes } from "astro/types";
-import type { TestimonialCard as Testimonial } from "../TestimonialCard.astro";
+import type { TestimonialCard as Testimonial } from "@components/TestimonialCard.astro";
 
 interface Props extends HTMLAttributes<"section"> {
 	testimonials?: ReadonlyArray<Testimonial>;

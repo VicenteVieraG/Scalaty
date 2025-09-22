@@ -1,9 +1,9 @@
 ---
-import Badge from "./Badge.astro";
-import Card from "./Card.astro";
+import Badge from "@components/Badge.astro";
+import Card from "@components/Card.astro";
 import { twMerge } from "tailwind-merge";
 import type { HTMLAttributes } from "astro/types";
-import type { SoftwareSolution } from "./Card.astro";
+import type { SoftwareSolution } from "@components/Card.astro";
 
 interface Props extends HTMLAttributes<"section"> {
 	solutions: ReadonlyArray<SoftwareSolution>;

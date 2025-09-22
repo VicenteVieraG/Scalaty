@@ -1,8 +1,8 @@
 ---
-import FeatureHighlights from "../FeatureHighlights.astro";
-import FeatureCard from "../FeatureCard.astro";
+import FeatureHighlights from "@components/FeatureHighlights.astro";
+import FeatureCard from "@components/FeatureCard.astro";
 import { twMerge } from "tailwind-merge";
-import { featureSections } from "../../data/main";
+import { featureSections } from "@data/main";
 import type { HTMLAttributes } from "astro/types";
 
 interface Props extends HTMLAttributes<"section"> {
