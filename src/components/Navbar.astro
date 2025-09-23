@@ -1,14 +1,12 @@
 ---
 import { Menu } from "@lucide/astro";
 import type { HTMLAttributes } from "astro/types";
+import { menuItems } from "@data/main";
 
 interface Props extends HTMLAttributes<"header"> {
     readonly className?: string | string[];
 };
 const { className } = Astro.props;
-
-const menuItems: ReadonlyArray<string> = ["Solutions", "Products", "About Us", "Pricing", "Blog"];
-const epicLink: Readonly<string> = "https://youtu.be/dQw4w9WgXcQ?si=1BSg0Cxx11qA6LL9";
 ---
 
 <header class:list={["relative z-10", className]}>
@@ -22,13 +20,13 @@ const epicLink: Readonly<string> = "https://youtu.be/dQw4w9WgXcQ?si=1BSg0Cxx11qA
 						--glass-opacity: 0.2;
 						--glass-reflect-opacity: 0;
 						--glass-text-shadow-opacity: 0;">
-					{ menuItems.map(item => <li><a href={ epicLink } class="place-content-center">{ item }</a></li>) }
+					{ menuItems.map(({title, sectionLink}) => <li><a href={ sectionLink } class="place-content-center">{ title }</a></li>) }
 				</menu>
 			</details>
 		</div>
 		<div class="navbar-center hidden sm:flex">
 			<menu class="menu menu-horizontal sm:text-lg sm:gap-x-7 md:gap-x-14 lg:gap-x-21">
-				{ menuItems.map(item => <li><a href={ epicLink }>{ item }</a></li>) }
+				{ menuItems.map(({title, sectionLink}) => <li><a href={ sectionLink }>{ title }</a></li>) }
 			</menu>
 		</div>
 	</nav>

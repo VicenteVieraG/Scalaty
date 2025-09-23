@@ -46,6 +46,10 @@
   --noise: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .reveal-group {
   --stagger: 100ms;
 

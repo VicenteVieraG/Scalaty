@@ -3,12 +3,32 @@ import type { SoftwareSolution } from "@components/Card.astro";
 import type { Highlights } from "@components/FeatureHighlights.astro";
 import type { FeatureInfo } from "@components/FeatureCard.astro";
 
+type SectionLink = 
+	| "#solutions"
+	| "#features"
+	| "#testimonials"
+	| "#footer"
+	| "" // <- Missing section declaration: Nuestra Historia.
+	;
+interface MenuItem {
+	title: string;
+	sectionLink: SectionLink;
+};
+type Menu = [MenuItem, MenuItem, MenuItem, MenuItem];
+
 type Solutions = [SoftwareSolution, SoftwareSolution, SoftwareSolution];
 
 export interface FeatureSection {
 	readonly highlights: Highlights;
 	readonly features: Array<FeatureInfo>;
 };
+
+export const menuItems: Readonly<Menu> = [
+	{ title: "Productos", sectionLink: "#solutions" },
+	{ title: "Clientes", sectionLink: "#testimonials" },
+	{ title: "Nosotros", sectionLink: "" },
+	{ title: "Contáctanos", sectionLink: "#footer" }
+];
 
 export const brands: ReadonlyArray<Brand> = [
 	{ name: "IMPORTACIONES GUTIÉRREZ", logo: "/svg/scalatyLogo.svg" },
