@@ -10,9 +10,10 @@ interface Props extends HTMLAttributes<"section"> {
 	readonly className?: string | string[];
 };
 const { solutions, className, ...props } = Astro.props;
+const stagger: Readonly<number> = 2000;
 ---
 
-<header class:list={twMerge(["text-center [&>*]:mb-4", className])} { ...props }>
+<header data-stagger={ stagger } class:list={twMerge(["text-center [&>*]:mb-4", "reveal-group", className])} { ...props }>
 	<Badge text="Take Full Control of Your Task" className="font-bold" />
 	<h1 class="text-4xl font-medium md:text-5xl">Business
 		<span class="text-primary block sm:inline">Application</span>
@@ -23,8 +24,34 @@ const { solutions, className, ...props } = Astro.props;
 	role="list"
 	class:list={[
 		"grid gap-y-4",
+		"reveal-group",
 		"sm:grid-cols-2 sm:gap-x-4 sm:[&>div:last-child]:col-span-full",
 		"md:grid-cols-3 md:[&>div:last-child]:col-span-1"
 	]}>
 	{ solutions.map(solution => <Card { ...solution } />) }
 </div>
+
+<script>
+	const className: Readonly<string> = "reveal-group";
+	const revealGroups: Readonly<HTMLCollectionOf<Element>> = document.getElementsByClassName(className);
+
+	const observer = new IntersectionObserver((entries, observer) => {
+		for(const entry of entries) if(entry.isIntersecting) {
+			const target = entry.target as HTMLElement;
+
+			target.style.animationPlayState = "running";
+			observer.unobserve(target);
+		}
+	}, {
+		root: null,
+		rootMargin: "0px 0px 0px 0px",
+		threshold: 0.0
+	});
+
+	for(const revealGroup of revealGroups) {
+		const parent = revealGroup as Readonly<HTMLElement>;
+		observer.observe(parent);
+
+		for(const child of parent.children) observer.observe(child);
+	}
+</script>
