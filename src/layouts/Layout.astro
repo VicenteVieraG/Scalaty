@@ -49,6 +49,8 @@ const AUTHOR: Readonly<string> = "Vicente Javier Viera Guizar";
 		<meta name="generator" content={ Astro.generator } />
 		<meta name="robots" content="index, follow" />
 		<Font cssVariable="--font-pjs" preload />
+
+		<script src="../scripts/reveal.ts" />
 	</head>
 	<body class:list={["font-pjs px-4 pt-2 pb-12", className]} { ...props }>
 		<slot />
