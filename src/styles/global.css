@@ -59,12 +59,21 @@ html {
   animation-delay: calc(var(--stagger) + attr(data-stagger ms, 0ms));
   animation-fill-mode: both;
   animation-play-state: paused;
-  will-change: opacity, transform;
 
-  & * {
+  & :not([role="marquee"], [role="marquee"] *) {
     animation: inherit;
     animation-delay: calc(var(--stagger) + attr(data-stagger ms, 0ms) + 300ms);
-    will-change: inherit;
+  }
+
+  & *.no-reveal {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-group {
+    --stagger: initial !important;
+    animation: initial !important;
   }
 }
 

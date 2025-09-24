@@ -29,17 +29,18 @@ const {
 
 <article
 	class:list={twMerge([
+		"reveal-group",
 		"grid lg:grid-cols-2 lg:grid-rows-[auto_auto] lg:grid-flow-col",
 		className
 	])}
 	{ ...props }>
 	<header class="text-center font-semibold [&>*]:mb-6 md:text-left">
-		<h1 class="text-primary text-sm" set:text={ feature } />
-		<h2 class="text-4xl">
+		<h1 data-stagger={ 100 } class="text-primary text-sm" set:text={ feature } />
+		<h2 data-stagger={ 200 } class="text-4xl">
 			{ title.first }
 			<span class="text-primary" set:text={ title.highlight } />
 		</h2>
-		<p class="font-normal" set:text={ description } />
+		<p data-stagger={ 300 } class="font-normal" set:text={ description } />
 	</header>
 	<div role="list" class="[&>article]:mb-6">
 		<slot />

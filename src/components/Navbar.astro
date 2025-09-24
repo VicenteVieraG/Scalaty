@@ -10,8 +10,8 @@ const { className } = Astro.props;
 ---
 
 <header class:list={["relative z-10", className]}>
-	<nav class="navbar glass justify-center border rounded-box shadow-sm">
-		<div class="navbar-end flex-1 sm:hidden">
+	<nav class:list={["navbar glass", "reveal-group", "justify-center border rounded-box shadow-sm"]}>
+		<div class:list={["navbar-end", "no-reveal", "flex-1", "sm:hidden"]}>
 			<details class="dropdown dropdown-end">
 				<summary class="btn m-1"><Menu/></summary>
 				<menu
@@ -26,7 +26,7 @@ const { className } = Astro.props;
 		</div>
 		<div class="navbar-center hidden sm:flex">
 			<menu class="menu menu-horizontal sm:text-lg sm:gap-x-7 md:gap-x-14 lg:gap-x-21">
-				{ menuItems.map(({title, sectionLink}) => <li><a href={ sectionLink }>{ title }</a></li>) }
+				{ menuItems.map(({title, sectionLink}, index) => <li data-stagger={ index * 100 }><a href={ sectionLink }>{ title }</a></li>) }
 			</menu>
 		</div>
 	</nav>

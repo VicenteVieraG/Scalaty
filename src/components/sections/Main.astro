@@ -10,7 +10,7 @@ interface Props extends HTMLAttributes<"main"> {
 const { className, ...props } = Astro.props;
 ---
 
-<main class:list={twMerge(["min-h-[90svh]", className])} { ...props }>
+<main class:list={twMerge(["min-h-svh", className])} { ...props }>
 	<Navbar className="mt-4 mb-16 sm:mx-6" />
 	<Hero />
 </main>

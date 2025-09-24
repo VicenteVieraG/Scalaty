@@ -5,13 +5,13 @@ import { Zap } from "@lucide/astro";
 ---
 
 <section class="hero">
-	<header class="hero-content text-center flex-col">
-		<Badge text="Take Full Control of Your Task"><Zap class="fill-primary stroke-0"/></Badge>
-		<h1 class="uppercase text-4xl font-bold sm:text-4xl/12 md:text-5xl/14">
+	<header class:list={["hero-content", "reveal-group", "text-center flex-col"]}>
+		<Badge data-stagger={ 100 } text="Take Full Control of Your Task"><Zap class="fill-primary stroke-0"/></Badge>
+		<h1 data-stagger={ 200 } class="uppercase text-4xl font-bold sm:text-4xl/12 md:text-5xl/14">
 			 Optimiza tu empresa,
 			<span class="block text-primary">opera en piloto automático</span>
 		</h1>
-		<p class="sm:text-lg"><small>Unlock the full potential of your data with our suite of analytics tools</small></p>
-		<Button text="Únete a la waitlist" />
+		<p data-stagger={ 300 } class="sm:text-lg"><small>Unlock the full potential of your data with our suite of analytics tools</small></p>
+		<Button data-stagger={ 400 } text="Únete a la waitlist" />
 	</header>
 </section>

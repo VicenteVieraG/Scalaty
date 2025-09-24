@@ -10,7 +10,7 @@ interface Props extends HTMLAttributes<"section"> {
 const { className, ...props } = Astro.props;
 ---
 
-<section class:list={twMerge(["", className])} { ...props }>
+<section class:list={twMerge(["reveal-group", className])} { ...props }>
 	<h1 class="text-center text-lg">Partnering with top industry experts</h1>
 	<Marquee brands={ brands } className="my-4" />
 </section>

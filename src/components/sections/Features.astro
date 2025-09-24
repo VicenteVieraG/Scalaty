@@ -17,7 +17,7 @@ const { className, ...props } = Astro.props;
 			imagePosition={ ++index % 2 === 0? "left" : "right" }
 			className="mb-24 last:mb-auto"
 			{ ...highlights }>
-			{features.map(feature => <FeatureCard { ...feature } />)}
+			{features.map((feature, index) => <FeatureCard data-stagger={ index * 100 + 300 } { ...feature } />)}
 		</FeatureHighlights>
 	)}
 </section>

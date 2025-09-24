@@ -23,6 +23,8 @@ export interface FeatureSection {
 	readonly features: Array<FeatureInfo>;
 };
 
+export const stagger: Readonly<number> = 300;
+
 export const menuItems: Readonly<Menu> = [
 	{ title: "Productos", sectionLink: "#solutions" },
 	{ title: "Clientes", sectionLink: "#testimonials" },
