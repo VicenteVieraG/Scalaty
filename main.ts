@@ -2,6 +2,7 @@ import type { Brand } from "@components/Marquee.astro";
 import type { SoftwareSolution } from "@components/Card.astro";
 import type { Highlights } from "@components/FeatureHighlights.astro";
 import type { FeatureInfo } from "@components/FeatureCard.astro";
+import type { TestimonialCard } from "@components/TestimonialCard.astro";
 
 type SectionLink = 
 	| "#solutions"
@@ -119,5 +120,110 @@ export const featureSections: ReadonlyArray<FeatureSection> = [
 				icon: "HandMetal"
 			}
 		]
+	}
+];
+
+export const testimonials: ReadonlyArray<TestimonialCard> = [
+	{
+		testimonial: {
+			cite: "Scalaty unlocked a reliable experimentation workflow for our product teams.",
+			source: "https://github.com/addyosmani"
+		},
+		author: {
+			name: "Addy Osmani",
+			social: {
+				link: "https://github.com/addyosmani",
+				userName: "addyosmani",
+				profilePicture: "https://avatars.githubusercontent.com/u/110953?v=4"
+			},
+			company: {
+				name: "scalaty",
+				logo: "/svg/scalatyLogo.svg"
+			}
+		}
+	},
+	{
+		testimonial: {
+			cite: "The observability playbooks they shipped keep our alerts calm and actionable.",
+			source: "https://github.com/mipsytipsy"
+		},
+		author: {
+			name: "Charity Majors",
+			social: {
+				link: "https://github.com/mipsytipsy",
+				userName: "mipsytipsy",
+				profilePicture: "https://avatars.githubusercontent.com/u/93396?v=4"
+			}
+		}
+	},
+	{
+		testimonial: {
+			cite: "We iterated on onboarding flows in days instead of months thanks to their staging automation.",
+			source: "https://github.com/kentcdodds"
+		},
+		author: {
+			name: "Kent C. Dodds",
+			social: {
+				link: "https://github.com/kentcdodds",
+				userName: "kentcdodds",
+				profilePicture: "https://avatars.githubusercontent.com/u/1500684?v=4"
+			}
+		}
+	},
+	{
+		testimonial: {
+			cite: "Their team understood our edge caching challenges and solved them with zero drama.",
+			source: "https://github.com/rauchg"
+		},
+		author: {
+			name: "Guillermo Rauch",
+			social: {
+				link: "https://github.com/rauchg",
+				userName: "rauchg",
+				profilePicture: "https://avatars.githubusercontent.com/u/13041?v=4"
+			}
+		}
+	},
+	{
+		testimonial: {
+			cite: "Scalaty delivered a developer experience our community actually enjoys using.",
+			source: "https://github.com/cassidoo"
+		},
+		author: {
+			name: "Cassidy Williams",
+			social: {
+				link: "https://github.com/cassidoo",
+				userName: "cassidoo",
+				profilePicture: "https://avatars.githubusercontent.com/u/1121701?v=4"
+			}
+		}
+	},
+	{
+		testimonial: {
+			cite: "They translated messy product requirements into a crisp component system overnight.",
+			source: "https://github.com/sdras"
+		},
+		author: {
+			name: "Sarah Drasner",
+			social: {
+				link: "https://github.com/sdras",
+				userName: "sdras",
+				profilePicture: "https://avatars.githubusercontent.com/u/2281088?v=4"
+			}
+		}
+	},
+	{
+		testimonial: {
+			cite: "Performance budgets stayed green after their audits and the wins keep compounding.",
+			source: "https://github.com/paulirish"
+		},
+		author: {
+			name: "Paul Irish",
+			social: {
+				link: "https://github.com/paulirish",
+				userName: "paulirish",
+				profilePicture: "https://avatars.githubusercontent.com/u/39191?v=4"
+			}
+		}
 	}
 ];

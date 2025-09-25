@@ -53,22 +53,33 @@ const logoSize: Readonly<number> = 24;
 <blockquote
 	aria-label={ "Testimonio de " + name }
 	cite={ source }
-	class:list={twMerge(["", className])}
+	class:list={twMerge([
+		"bg-base-200 min-w-xs rounded-box ring ring-secondary/50",
+		"first:[&>hr]:visible",
+		className
+	])}
 	{ ...props }>
-	<p class="" set:text={ "“" + cite + "”" } />
-	<div role="contentinfo" aria-label="Detalles del autor">
+	<p class="text-lg font-semibold p-6 sm:text-xl sm:p-12" set:text={ "“" + cite + "”" } />
+	<hr class="invisible border-secondary/50" />
+	<div
+		role="contentinfo"
+		aria-label="Detalles del autor"
+		class="box-content whitespace-nowrap px-6 py-4">
 		<Avatar
 			aria-label={ "Imagen de perfil de " + name }
 			source={ profilePicture }
 			alt={ "Imagen de perfil de " + name }
 			size={ avatarSize }
+			className="size-10 inline-block align-middle"
 		/>
-		<b aria-label="Nombre del autor" set:text={ name } />
-		<cite aria-label="Perfil de redes sociales">
+		<cite aria-label="Perfil de redes sociales" class="inline-block align-middle ml-2 [&>*]:block [&>*]:text-sm">
+			<b aria-label="Nombre del autor" set:text={ name } />
 			<a href={ link } set:text={ "@" + userName } />
 		</cite>
 		{company &&
-			<figure aria-label={ "Logo de " + company.name }>
+			<figure
+				aria-label={ "Logo de " + company.name }
+				class="mt-4 [&>*]:inline-block [&>*]:align-middle xs:m-0 xs:float-right">
 				<Image
 					src={ company.logo }
 					alt={ "Logo de " + company.name }
@@ -76,7 +87,7 @@ const logoSize: Readonly<number> = 24;
 					height={ logoSize }
 					quality="max"
 				/>
-				<figcaption set:text={ company.name } />
+				<figcaption class="text-lg font-medium" set:text={ company.name } />
 			</figure>
 		}
 	</div>

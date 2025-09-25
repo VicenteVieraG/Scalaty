@@ -1,20 +1,19 @@
 ---
 import TestimonialCard from "@components/TestimonialCard.astro";
 import { twMerge } from "tailwind-merge";
+import { testimonials } from "@data/main";
 import type { HTMLAttributes } from "astro/types";
-import type { TestimonialCard as Testimonial } from "@components/TestimonialCard.astro";
 
 interface Props extends HTMLAttributes<"section"> {
-	testimonials?: ReadonlyArray<Testimonial>;
 	readonly className?: string | string[]; 
 };
-const { testimonials = [], className, ...props } = Astro.props;
+const { className, ...props } = Astro.props;
 ---
 
 <section class:list={twMerge(["", className])} { ...props }>
-	<header>
-		<h1>Testimonials</h1>
-		<p>We have worked with thousands of amazing people</p>
+	<header class="mb-12">
+		<h1 class="text-primary text-center font-semibold mb-2">Testimonials</h1>
+		<p class="text-primary-content text-center text-4xl font-bold max-w-2xl md:mx-auto">We have worked with thousands of amazing people</p>
 	</header>
 	<div role="list" aria-label="Testimonios">
 		{testimonials.map(testimonial => <TestimonialCard { ...testimonial } />)}

@@ -9,6 +9,7 @@
 
 @theme inline {
   --font-pjs: var(--font-pjs);
+  --breakpoint-xs: 360px;
 }
 
 @plugin "daisyui/theme" {
