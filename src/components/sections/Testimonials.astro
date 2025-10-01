@@ -15,7 +15,7 @@ const { className, ...props } = Astro.props;
 		<h1 class="text-primary text-center font-semibold mb-2">Testimonials</h1>
 		<p class="text-primary-content text-center text-4xl font-bold max-w-2xl md:mx-auto">We have worked with thousands of amazing people</p>
 	</header>
-	<div role="list" aria-label="Testimonios">
-		{testimonials.map(testimonial => <TestimonialCard { ...testimonial } />)}
+	<div role="list" aria-label="Testimonios" class="space-y-4 sm:columns-2 sm:gap-4">
+		{testimonials.map(testimonial => <TestimonialCard { ...testimonial } className="sm:break-inside-avoid sm:first:[column-span:all]" />)}
 	</div>
 </section>

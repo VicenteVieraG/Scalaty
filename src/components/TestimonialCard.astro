@@ -54,12 +54,13 @@ const logoSize: Readonly<number> = 24;
 	aria-label={ "Testimonio de " + name }
 	cite={ source }
 	class:list={twMerge([
-		"bg-base-200 min-w-xs rounded-box ring ring-secondary/50",
-		"first:[&>hr]:visible",
+		"reveal-group",
+		"bg-base-200 min-w-72 rounded-box ring ring-secondary/50",
+		"first:[&>hr]:visible sm:first:[&>p]:text-xl",
 		className
 	])}
 	{ ...props }>
-	<p class="text-lg font-semibold p-6 sm:text-xl sm:p-12" set:text={ "“" + cite + "”" } />
+	<p class="text-lg font-semibold p-6 sm:text-sm sm:p-12" set:text={ "“" + cite + "”" } />
 	<hr class="invisible border-secondary/50" />
 	<div
 		role="contentinfo"
