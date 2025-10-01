@@ -14,10 +14,10 @@ const { solutions, className, ...props } = Astro.props;
 
 <header class:list={twMerge(["text-center [&>*]:mb-4", "reveal-group", className])} { ...props }>
 	<Badge text="Take Full Control of Your Task" className="font-bold" />
-	<h1 data-stagger={ 100 } class="text-4xl font-medium md:text-5xl">Business
+	<h1 class="text-4xl font-medium md:text-5xl">Business
 		<span class="text-primary block sm:inline">Application</span>
 	</h1>
-	<p data-stagger={ 200 } class="text-lg">Our users love how Mondai CRM simplifies their processes and streamlines operations</p>
+	<p data-stagger={ 100 } class="text-lg">Our users love how Mondai CRM simplifies their processes and streamlines operations</p>
 </header>
 <div
 	role="list"

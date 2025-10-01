@@ -15,9 +15,9 @@ const { className, ...props } = Astro.props;
 	{featureSections.map(({ highlights, features }, index) =>
 		<FeatureHighlights
 			imagePosition={ ++index % 2 === 0? "left" : "right" }
-			className="mb-24 last:mb-auto"
+			className="mb-24 reveal-group last:mb-auto"
 			{ ...highlights }>
-			{features.map((feature, index) => <FeatureCard data-stagger={ index * 100 + 300 } { ...feature } />)}
+			{features.map((feature, index) => <FeatureCard data-stagger={ index * 100 } { ...feature } />)}
 		</FeatureHighlights>
 	)}
 </section>
