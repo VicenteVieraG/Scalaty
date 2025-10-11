@@ -10,7 +10,18 @@ interface Props extends HTMLAttributes<"main"> {
 const { className, ...props } = Astro.props;
 ---
 
-<main class:list={twMerge(["min-h-svh", className])} { ...props }>
-	<Navbar className="mt-4 mb-16 sm:mx-6" />
+<main class:list={twMerge(["min-h-svh relative", className])} { ...props }>
+	<Navbar className="mb-16 sm:mx-6" />
 	<Hero />
 </main>
+
+<style>
+	main {
+		background-image: url(../../assets/background.png);
+		background-position: top center;
+		background-repeat: no-repeat;
+		background-clip: border-box;
+		background-size: cover;
+		background-size: max(100%, 40rem) auto;
+	}
+</style>

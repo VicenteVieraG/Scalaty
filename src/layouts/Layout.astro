@@ -52,7 +52,17 @@ const AUTHOR: Readonly<string> = "Vicente Javier Viera Guizar";
 
 		<script src="../scripts/reveal.ts" />
 	</head>
-	<body class:list={["font-pjs px-4 pt-2 pb-12", className]} { ...props }>
+	<body class:list={["font-pjs", className]} { ...props }>
 		<slot />
 	</body>
 </html>
+
+<style is:global>
+	body {
+		padding-bottom: 3rem;
+
+		& > *:is(:not(main)) {
+			padding: 0rem 1rem;
+		}
+	}
+</style>

@@ -10,7 +10,9 @@ const { className } = Astro.props;
 ---
 
 <header class:list={["relative z-10", className]}>
-	<nav class:list={["navbar glass", "reveal-group", "justify-center border rounded-box shadow-sm"]}>
+	<nav
+		class:list={["navbar glass", "reveal-group", "justify-center border rounded-box shadow-sm"]}
+		style="--glass-opacity: 0.12; --glass-border-opacity: 0.2;">
 		<div class:list={["navbar-end", "no-reveal", "flex-1", "sm:hidden"]}>
 			<details class="dropdown dropdown-end">
 				<summary class="btn m-1"><Menu/></summary>
