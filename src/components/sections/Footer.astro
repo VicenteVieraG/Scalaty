@@ -11,15 +11,12 @@ interface Props extends HTMLAttributes<"footer"> {
 const { className, ...props } = Astro.props;
 ---
 
-<footer
-	class:list={twMerge([
-		"glass text-center",
-		"reveal-group",
-		"w-[90%] min-w-xs mx-auto px-6 py-12 sm:pb-28",
-		"rounded-box",
-		className
-	])}
-	{ ...props }>
+<footer class:list={twMerge(["reveal-group", className])} { ...props }>
+	<div
+		aria-hidden="true"
+		class="no-reveal glass rounded-box absolute inset-0 pointer-events-none"
+		style="--glass-opacity: 16%; --glass-blur: 1px; --glass-border-opacity: 16%; --glass-reflect-opacity: 1%;"
+	/>
 	<header class="mb-6">
 		<h1 data-stagger={ 100 } class="text-4xl font-bold">
 			Start Your Free
@@ -67,3 +64,21 @@ const { className, ...props } = Astro.props;
 		</button>
 	</Form>
 </footer>
+
+<style>
+	footer {
+		background-image: url(../../assets/background.png);
+		background-position: top center;
+		background-repeat: no-repeat;
+		background-clip: border-box;
+		background-size: contain;
+		background-size: max(100%, 40rem) auto;
+		text-align: center;
+		width: 90%;
+		min-width: var(--container-xs);
+		margin: 0 auto;
+		padding: 4rem;
+		border-radius: var(--radius-box);
+		position: relative;
+	}
+</style>
