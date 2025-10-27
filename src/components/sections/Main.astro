@@ -11,8 +11,7 @@ const { className, ...props } = Astro.props;
 ---
 
 <main class:list={twMerge(["", className])} { ...props }>
-	<!-- <div class="glass size-full absolute" /> -->
-	<Navbar className="top-4 mb-16 sm:mx-6" />
+	<Navbar className="top-4 mb-16 z-50 sm:mx-6" />
 	<Hero />
 </main>
 
@@ -23,7 +22,7 @@ const { className, ...props } = Astro.props;
 		background-repeat: no-repeat;
 		background-clip: border-box;
 		background-size: cover;
-		background-size: max(100%, 40rem) auto;
+		min-width: 20rem;
 		min-height: 100svh;
 		padding: 0;
 		position: relative;
